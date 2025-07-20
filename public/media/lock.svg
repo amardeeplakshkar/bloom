@@ -1,0 +1,13 @@
+<svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true">
+<path d="M0.062829 99.1428L23.1727 53.2861C18.8869 47.6097 16.3823 40.531 16.4831 32.8691C16.7173 14.9206 31.4451 0.259516 49.5044 0.00323521C67.5638 -0.253046 83.5187 14.7497 83.5187 33.3139C83.5187 40.8079 81.029 47.7216 76.8261 53.2891L99.936 99.1457C100.135 99.5375 99.8471 100 99.4055 100H0.593387C0.151759 100 -0.132791 99.5375 0.062829 99.1457V99.1428Z" fill="url(#paint0_linear_2157_50914)"/>
+<path d="M0.062829 99.1428L23.1727 53.2861C18.8869 47.6097 16.3823 40.531 16.4831 32.8691C16.7173 14.9206 31.4451 0.259516 49.5044 0.00323521C67.5638 -0.253046 83.5187 14.7497 83.5187 33.3139C83.5187 40.8079 81.029 47.7216 76.8261 53.2891L99.936 99.1457C100.135 99.5375 99.8471 100 99.4055 100H0.593387C0.151759 100 -0.132791 99.5375 0.062829 99.1457V99.1428Z" fill="url(#pattern-home-animate-key-0)" fill-opacity="0.34"/>
+<defs>
+<pattern id="pattern-home-animate-key-0" patternContentUnits="objectBoundingBox" width="1" height="1">
+<use xlink:href="#svg-noise" transform="scale(0.000750751)"/>
+</pattern>
+<linearGradient id="paint0_linear_2157_50914" x1="32.5444" y1="9.6827" x2="77.5148" y2="100.215" gradientUnits="userSpaceOnUse">
+<stop offset="0.198661" stop-color="#F7BDF8"/>
+<stop offset="1" stop-color="#2F3CC0"/>
+</linearGradient>
+</defs>
+</svg>

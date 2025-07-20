@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="none" viewBox="0 0 31 31" class="timer-mob" aria-hidden="true">
+  <path fill="url(#home-animate-anything-timer-mob-a)" fill-rule="evenodd" d="M16.436 14.799a1 1 0 0 0 0 1.402L29.326 29.3c.622.632.174 1.701-.713 1.701H2.387c-.887 0-1.335-1.07-.713-1.701L14.564 16.2a1 1 0 0 0 0-1.402L1.674 1.7C1.052 1.07 1.5 0 2.387 0h26.226c.887 0 1.335 1.07.713 1.701L16.436 14.8Z" clip-rule="evenodd"/>
+  <path fill="url(#home-animate-anything-timer-mob-b)" fill-opacity=".6" fill-rule="evenodd" d="M16.436 14.799a1 1 0 0 0 0 1.402L29.326 29.3c.622.632.174 1.701-.713 1.701H2.387c-.887 0-1.335-1.07-.713-1.701L14.564 16.2a1 1 0 0 0 0-1.402L1.674 1.7C1.052 1.07 1.5 0 2.387 0h26.226c.887 0 1.335 1.07.713 1.701L16.436 14.8Z" clip-rule="evenodd" style="mix-blend-mode:multiply"/>
+  <defs>
+    <linearGradient id="home-animate-anything-timer-mob-a" x1="-2.648" x2="27.964" y1="-.976" y2="41.184" gradientUnits="userSpaceOnUse">
+      <stop offset=".27" stop-color="#FEC5FB"/>
+      <stop offset=".838" stop-color="#00BAE2"/>
+    </linearGradient>
+    <pattern id="home-animate-anything-timer-mob-b" width="6.452" height="6.452" patternContentUnits="objectBoundingBox">
+      <use xlink:href="#svg-noise" transform="scale(.0129)"/>
+    </pattern>
+  </defs>
+</svg>

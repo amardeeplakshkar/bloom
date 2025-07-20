@@ -1,0 +1,32 @@
+<svg width="380" height="332" viewBox="0 0 380 332" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" style="">
+    <g id="home-tools-scroll-curve">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M190 171.267C200.346 171.267 208.733 179.654 208.733 190V246.197C208.733 293.491 247.072 331.83 294.366 331.83C341.66 331.83 380 293.491 380 246.197V190C380 85.0658 294.934 0 190 0C85.0663 0 0.000549316 85.0658 0.000549316 190V246.197C0.000549316 293.491 38.34 331.83 85.6342 331.83C132.928 331.83 171.268 293.491 171.268 246.197V190C171.268 179.654 179.655 171.267 190 171.267Z" fill="url(#paint0_linear_1790_33970)"/>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M190 171.267C200.346 171.267 208.733 179.654 208.733 190V246.197C208.733 293.491 247.072 331.83 294.366 331.83C341.66 331.83 380 293.491 380 246.197V190C380 85.0658 294.934 0 190 0C85.0663 0 0.000549316 85.0658 0.000549316 190V246.197C0.000549316 293.491 38.34 331.83 85.6342 331.83C132.928 331.83 171.268 293.491 171.268 246.197V190C171.268 179.654 179.655 171.267 190 171.267Z" fill="url(#pattern-home-tools-scroll-0)" fill-opacity="0.6" style="mix-blend-mode:multiply"/>
+    </g>
+
+    <path id="home-tools-scroll-path" d="M 85 246.1967 V 190.83 C 85 132.66 131.66 85.5 189.83 85.5 C 248 85.5 294.5 132.66 294.5 190.83 V 246.1967"/>
+
+    <path id="home-tools-scroll-mask" d="M 84.5 246.1967 V 190.83 C 84.5 132.66 131.66 85.5 189.83 85.5 C 248 85.5 295.16 132.66 295.16 190.83 V 333" stroke="var(--color-just-black)" stroke-width="175" stroke-miterlimit="10" style="stroke-dashoffset: -449.112px; stroke-dasharray: 79.2727px, 449.412px;"/>
+    
+    <g id="home-tools-scroll-ball" style="translate: none; rotate: none; scale: none; transform-origin: 0px 0px 0px;" data-svg-origin="85.26800537109375 246.56299591064453" transform="matrix(1,0,0,1,209.24006,-0.37055)">
+        <rect width="172" height="172" rx="85.6337" transform="matrix(-1 0 0 1 171.268 160.563)" fill="url(#paint1_linear_1790_33970)"/>
+        <rect width="172" height="172" rx="85.6337" transform="matrix(-1 0 0 1 171.268 160.563)" fill="url(#pattern-home-tools-scroll-1)" fill-opacity="0.6" style="mix-blend-mode:multiply"/>
+    </g>
+    
+    <defs>
+        <pattern id="pattern-home-tools-scroll-0" patternContentUnits="objectBoundingBox" width="0.526317" height="0.602717">
+        <use xlink:href="#svg-noise" transform="scale(0.00105263 0.00120543)"/>
+        </pattern>
+        <pattern id="pattern-home-tools-scroll-1" patternContentUnits="objectBoundingBox" width="1.16776" height="1.16776">
+        <use xlink:href="#svg-noise" transform="scale(0.00233553)"/>
+        </pattern>
+        <linearGradient id="paint0_linear_1790_33970" x1="412.458" y1="-10.4465" x2="100.768" y2="481.138" gradientUnits="userSpaceOnUse">
+        <stop offset="0.26957" stop-color="#FEC5FB"/>
+        <stop offset="0.838196" stop-color="#00BAE2"/>
+        </linearGradient>
+        <linearGradient id="paint1_linear_1790_33970" x1="-14.6291" y1="-5.39174" x2="154.494" y2="227.531" gradientUnits="userSpaceOnUse">
+        <stop offset="0.26957" stop-color="#FEC5FB"/>
+        <stop offset="0.838196" stop-color="#00BAE2"/>
+        </linearGradient>
+    </defs>
+</svg>

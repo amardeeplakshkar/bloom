@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="none" viewBox="0 0 15 31">
+					<path fill="url(#paint0_radial_2163_47256)" fill-rule="evenodd" d="m13.727 0-3.613 11.475H15L.726 31l4.16-14.904H0L5.5 0h8.227Z" clip-rule="evenodd"/>
+					<path fill="url(#pattern-header-logo-s-0)" fill-rule="evenodd" d="m13.727 0-3.613 11.475H15L.726 31l4.16-14.904H0L5.5 0h8.227Z" clip-rule="evenodd" style="mix-blend-mode: multiply"/>
+					<defs>
+						<radialGradient id="paint0_radial_2163_47256" cx="0" cy="0" r="1" gradientTransform="matrix(-5.4677 -24.41905 14.9584 -3.34936 4.9 22.232)" gradientUnits="userSpaceOnUse">
+							<stop stop-color="#FFEBE7"/>
+							<stop offset=".672" stop-color="#FF9C7C"/>
+							<stop offset=".816" stop-color="#FF9983"/>
+							<stop offset=".901" stop-color="#FF774B"/>
+							<stop offset="1" stop-color="#E76F00"/>
+						</radialGradient>
+						<pattern id="pattern-header-logo-s-0" width="6.667" height="3.226" patternContentUnits="objectBoundingBox">
+							<use xlink:href="#svg-noise" transform="scale(.01333 .00645)"/>
+						</pattern>
+					</defs></svg>

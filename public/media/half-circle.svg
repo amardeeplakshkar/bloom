@@ -1,0 +1,14 @@
+<svg width="496" height="248" viewBox="0 0 496 248" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" class="half-circle" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0px);">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M496 248C496 111.033 384.967 5.987e-06 248 0C111.033 -5.987e-06 5.987e-06 111.033 0 248L496 248Z" fill="url(#paint0_radial_2080_56314)"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M496 248C496 111.033 384.967 5.987e-06 248 0C111.033 -5.987e-06 5.987e-06 111.033 0 248L496 248Z" fill="url(#pattern-home-animate-half-circle-0)" fill-opacity="0.6" style="mix-blend-mode:multiply"/>
+<defs>
+<pattern id="pattern-home-animate-half-circle-0" patternContentUnits="objectBoundingBox" width="0.201613" height="0.403226">
+<use xlink:href="#svg-noise" transform="scale(0.000403226 0.000806452)"/>
+</pattern>
+<radialGradient id="paint0_radial_2080_56314" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(137.354 461.661) rotate(-54.9042) scale(517.614 425.925)">
+<stop offset="0.380208" stop-color="#D1FFBC"/>
+<stop offset="0.734375" stop-color="#0AE448"/>
+<stop offset="1" stop-color="#0AA3E4"/>
+</radialGradient>
+</defs>
+</svg>

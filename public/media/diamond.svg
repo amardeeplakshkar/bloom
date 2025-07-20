@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="none" viewBox="0 0 31 31" class="diamond-mob" aria-hidden="true">
+  <path fill="url(#home-animate-aything-diamond-mob-a)" d="M14.793.707a1 1 0 0 1 1.414 0l14.086 14.086a1 1 0 0 1 0 1.414L16.207 30.293a1 1 0 0 1-1.414 0L.707 16.207a1 1 0 0 1 0-1.414L14.793.707Z"/>
+  <path fill="url(#home-animate-aything-diamond-mob-b)" fill-opacity=".6" d="M14.793.707a1 1 0 0 1 1.414 0l14.086 14.086a1 1 0 0 1 0 1.414L16.207 30.293a1 1 0 0 1-1.414 0L.707 16.207a1 1 0 0 1 0-1.414L14.793.707Z" style="mix-blend-mode:multiply"/>
+  <defs>
+    <linearGradient id="home-animate-aything-diamond-mob-a" x1="-17.351" x2="37.709" y1="-3.586" y2="18.045" gradientUnits="userSpaceOnUse">
+      <stop offset=".427" stop-color="#FF8709"/>
+      <stop offset=".792" stop-color="#F7BDF8"/>
+    </linearGradient>
+    <pattern id="home-animate-aything-diamond-mob-b" width="6.452" height="6.452" patternContentUnits="objectBoundingBox">
+      <use xlink:href="#svg-noise" transform="scale(.0129)"/>
+    </pattern>
+  </defs>
+</svg>

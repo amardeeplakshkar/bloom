@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="none" width="62" height="63" viewBox="0 0 62 63" aria-hidden="true">
+  <path fill="url(#paint0_radial_2771_42684)" d="m34.246 27.525 10.197-13.201a.26.26 0 0 1 .362-.047L61.76 27.372a.26.26 0 0 1 .046.366c-7.386 9.336-20.882 11.074-30.391 3.919l16.975 13.112c.112.087.133.25.046.362L35.34 62.085a.26.26 0 0 1-.365.046c-9.41-7.444-11.1-21.093-3.746-30.616l-13.255 17.16a.259.259 0 0 1-.362.046L.658 35.626a.26.26 0 0 1-.046-.365c7.386-9.337 20.881-11.074 30.391-3.92l-16.935-13.08a.259.259 0 0 1-.047-.363L27.117.944a.26.26 0 0 1 .365-.046c8.08 6.393 10.469 17.361 6.326 26.362-.129.278.25.508.439.264l-.001.001Z"/>
+  <path fill="url(#pattern-home-hero-btn-windmill-0)" fill-opacity=".6" d="m34.246 27.525 10.197-13.201a.26.26 0 0 1 .362-.047L61.76 27.372a.26.26 0 0 1 .046.366c-7.386 9.336-20.882 11.074-30.391 3.919l16.975 13.112c.112.087.133.25.046.362L35.34 62.085a.26.26 0 0 1-.365.046c-9.41-7.444-11.1-21.093-3.746-30.616l-13.255 17.16a.259.259 0 0 1-.362.046L.658 35.626a.26.26 0 0 1-.046-.365c7.386-9.337 20.881-11.074 30.391-3.92l-16.935-13.08a.259.259 0 0 1-.047-.363L27.117.944a.26.26 0 0 1 .365-.046c8.08 6.393 10.469 17.361 6.326 26.362-.129.278.25.508.439.264l-.001.001Z"/>
+  <defs>
+    <radialGradient id="paint0_radial_2771_42684" cx="0" cy="0" r="1" gradientTransform="rotate(-142.317 24.316 16.274) scale(34.5669)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F0FCFF"/>
+      <stop offset=".672" stop-color="#9BEDFF"/>
+      <stop offset=".76" stop-color="#98ECFF"/>
+      <stop offset=".849" stop-color="#5BE1FF"/>
+      <stop offset=".948" stop-color="#00BAE2"/>
+    </radialGradient>
+    <pattern id="pattern-home-hero-btn-windmill-0" width="2.279" height="2.279" patternContentUnits="objectBoundingBox">
+      <use xlink:href="#svg-noise" transform="scale(.00456)"/>
+    </pattern>
+  </defs>
+</svg>

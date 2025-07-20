@@ -24,7 +24,7 @@ export const codeAgentFunction = inngest.createFunction(
     { event: "codeAgentFunction/run" },
     async ({ event, step }) => {
         const sandboxId = await step.run("get-sandbox-id", async () => {
-            const sandbox = await Sandbox.create("vibe-nextjs-template-v2");
+            const sandbox = await Sandbox.create("bloom-dev");
             await sandbox.setTimeout(SANDBOX_TIMEOUT)
             return sandbox.sandboxId;
         });
@@ -143,7 +143,9 @@ export const codeAgentFunction = inngest.createFunction(
             description: "An expert Coding Agent",
             system: PROMPT,
             model: openai({
-                model: "gpt-4o",
+                model: "openai",
+                apiKey: process.env.OPENAI_API_KEY,
+                baseUrl: process.env.OPENAI_API_BASE_URL,
             }),
             tools: [terminalTool, createOrUpdateFiles, readFiles],
             lifecycle: {
@@ -159,53 +161,31 @@ export const codeAgentFunction = inngest.createFunction(
                 }
             }
         })
-        const codeAgent = createAgent<AgentState>({
-            name: "codeAgent ",
-            description: "An expert Coding Agent",
-            system: PROMPT3,
-            model: gemini({
-                model: "gemini-2.5-pro",
-            }
-            ),
-            tools: [terminalTool, createOrUpdateFiles, readFiles],
-            lifecycle: {
-                onResponse: async ({ result, network }) => {
-                    const lastAssistantMessageText =
-                        lastAssistantTextMessageContent(result);
-                    if (lastAssistantMessageText && network) {
-                        if (lastAssistantMessageText?.includes("<task_summary>")) {
-                            network.state.data.summary = lastAssistantMessageText;
-                        }
-                    }
-                    return result;
-                }
-            }
-        });
-        const anthropicCodeAgent = createAgent<AgentState>({
-            name: "anthropicCodeAgent ",
-            description: "An expert Coding Agent",
-            system: PROMPT2,
-            model: anthropic({
-                model: "claude-3-5-haiku-latest",
-                defaultParameters: { temperature: 0.5, max_tokens: 4096 },
-            }),
-            tools: [terminalTool, createOrUpdateFiles, readFiles],
-            lifecycle: {
-                onResponse: async ({ result, network }) => {
-                    const lastAssistantMessageText =
-                        lastAssistantTextMessageContent(result);
-                    if (lastAssistantMessageText && network) {
-                        if (lastAssistantMessageText?.includes("<task_summary>")) {
-                            network.state.data.summary = lastAssistantMessageText;
-                        }
-                    }
-                    return result;
-                }
-            }
-        });
+        // const codeAgent = createAgent<AgentState>({
+        //     name: "codeAgent ",
+        //     description: "An expert Coding Agent",
+        //     system: PROMPT3,
+        //     model: gemini({
+        //         model: "gemini-2.5-pro",
+        //     }
+        //     ),
+        //     tools: [terminalTool, createOrUpdateFiles, readFiles],
+        //     lifecycle: {
+        //         onResponse: async ({ result, network }) => {
+        //             const lastAssistantMessageText =
+        //                 lastAssistantTextMessageContent(result);
+        //             if (lastAssistantMessageText && network) {
+        //                 if (lastAssistantMessageText?.includes("<task_summary>")) {
+        //                     network.state.data.summary = lastAssistantMessageText;
+        //                 }
+        //             }
+        //             return result;
+        //         }
+        //     }
+        // });
         const network = createNetwork<AgentState>({
             name: "coding-agent-network",
-            agents: [codeAgent],
+            agents: [openAiCodeAgent],
             maxIter: 15,
             defaultState: state,
             router: async ({ network }) => {
@@ -213,7 +193,7 @@ export const codeAgentFunction = inngest.createFunction(
                 if (summary) {
                     return;
                 }
-                return codeAgent;
+                return openAiCodeAgent;
             }
         });
         const result = await network.run(event.data.value, { state: state });
@@ -221,16 +201,20 @@ export const codeAgentFunction = inngest.createFunction(
             name: "fragment-title-generator",
             description: "A fragment title generator",
             system: FRAGMENT_TITLE_PROMPT,
-            model: gemini({
-                model: "gemini-2.0-flash",
+             model: openai({
+                model: "openai",
+                apiKey: process.env.OPENAI_API_KEY,
+                baseUrl: process.env.OPENAI_API_BASE_URL,
             }),
         });
         const responseGenerator = createAgent({
             name: "response-generator",
             description: "A response  generator",
             system: RESPONSE_PROMPT,
-            model: gemini({
-                model: "gemini-2.0-flash",
+             model: openai({
+                model: "openai",
+                apiKey: process.env.OPENAI_API_KEY,
+                baseUrl: process.env.OPENAI_API_BASE_URL,
             }),
         });
         const {

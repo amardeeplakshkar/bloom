@@ -1,0 +1,31 @@
+<svg width="372" height="370" viewBox="0 0 372 370" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true">
+    <g filter="url(#goo)">
+        <g fill="url(#paint0_radial_1655_45341)">
+            <path class="home-tools-svg-circle-small" d="M190 275C190 327.467 147.467 370 95 370C42.5329 370 0 327.467 0 275C0 222.533 42.5329 180 95 180C147.467 180 190 222.533 190 275Z" style="translate: none; rotate: none; scale: none; transform-origin: 0px 0px 0px;" data-svg-origin="152 218" transform="matrix(1,0,0,1,0,0)"/>
+            <path class="home-tools-svg-circle-small" d="M190 275C190 327.467 147.467 370 95 370C42.5329 370 0 327.467 0 275C0 222.533 42.5329 180 95 180C147.467 180 190 222.533 190 275Z" fill="url(#pattern-home-tools-svg-0)" style="mix-blend-mode:multiply"/>
+
+            <path class="home-tools-svg-circle" d="M85 7.99999C85 3.58172 88.5817 0 93 0H363.884C368.302 0 371.884 3.58172 371.884 8V277C371.884 281.418 368.302 285 363.884 285H93C88.5817 285 85 281.418 85 277V7.99999Z" data-original="M190 275C190 327.467 147.467 370 95 370C42.5329 370 0 327.467 0 275C0 222.533 42.5329 180 95 180C147.467 180 190 222.533 190 275Z"/>
+            <path class="home-tools-svg-circle" d="M85 7.99999C85 3.58172 88.5817 0 93 0H363.884C368.302 0 371.884 3.58172 371.884 8V277C371.884 281.418 368.302 285 363.884 285H93C88.5817 285 85 281.418 85 277V7.99999Z" fill="url(#pattern-home-tools-svg-0)" style="mix-blend-mode:multiply" data-original="M190 275C190 327.467 147.467 370 95 370C42.5329 370 0 327.467 0 275C0 222.533 42.5329 180 95 180C147.467 180 190 222.533 190 275Z"/>
+        </g>
+    </g>
+
+    <path id="home-tools-svg-square-large" d="M85 7.99999C85 3.58172 88.5817 0 93 0H363.884C368.302 0 371.884 3.58172 371.884 8V277C371.884 281.418 368.302 285 363.884 285H93C88.5817 285 85 281.418 85 277V7.99999Z"/>
+
+    <defs>
+        <pattern id="pattern-home-tools-svg-0" patternContentUnits="objectBoundingBox" width="0.261429" height="0.263158">
+            <use xlink:href="#svg-noise" transform="scale(0.000522859 0.000526316)"/>
+        </pattern>
+        
+        <radialGradient id="paint0_radial_1655_45341" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(-4.01487e-06 268.924) rotate(-48.1016) scale(361.295 241.508)">
+            <stop stop-color="#FFD9B0"/>
+            <stop offset="0.807292" stop-color="#FD9F3B"/>
+            <stop offset="1" stop-color="#FF8709"/>
+        </radialGradient>
+
+        <filter id="goo">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur"/>
+            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo"/>
+            <feComposite in="SourceGraphic" in2="goo" operator="atop"/>
+        </filter>
+    </defs>
+</svg>
