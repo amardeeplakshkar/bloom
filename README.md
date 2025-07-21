@@ -3,7 +3,7 @@
   
   # 🌸 Bloom - AI-Powered Code Generation Platform
   
-   <img src="public/media/og-image.png" alt="Bloom" height="300">
+   <img src="public/og-image.png" alt="Bloom" height="300">
 
   <p align="center">
     <strong>Transform your ideas into production-ready code with intelligent AI agents</strong>
