@@ -1,4 +1,3 @@
-// Types
 export interface FileWithPreview {
     id: string;
     file: File;
@@ -33,17 +32,16 @@ export interface FileWithPreview {
     disabled?: boolean;
     placeholder?: string;
     maxFiles?: number;
-    maxFileSize?: number; // in bytes
+    maxFileSize?: number; 
     acceptedFileTypes?: string[];
     models?: ModelOption[];
     defaultModel?: string;
     setSelectedChatModel: (model: string) => void;
   }
   
-  // Constants
   export const MAX_FILES = 10;
-  export const MAX_FILE_SIZE = 50 * 1024 * 1024; // 50MB
-  export const PASTE_THRESHOLD = 200; // characters threshold for showing as pasted content
+  export const MAX_FILE_SIZE = 50 * 1024 * 1024; 
+  export const PASTE_THRESHOLD = 200; 
   export const DEFAULT_MODELS_INTERNAL: ModelOption[] = [
     {
       id: "claude-sonnet-4",
@@ -77,7 +75,6 @@ export interface FileWithPreview {
     const parts = type.split("/");
     let label = parts[parts.length - 1].toUpperCase();
     if (label.length > 7 && label.includes("-")) {
-      // e.g. VND.OPENXMLFORMATS-OFFICEDOCUMENT...
       label = label.substring(0, label.indexOf("-"));
     }
     if (label.length > 10) {
@@ -86,7 +83,6 @@ export interface FileWithPreview {
     return label;
   };
   
-  // Helper function to check if a file is textual
   export const isTextualFile = (file: File): boolean => {
     const textualTypes = [
       "text/",
@@ -147,12 +143,10 @@ export interface FileWithPreview {
       "pdf",
     ];
   
-    // Check MIME type
     const isTextualMimeType = textualTypes.some((type) =>
       file.type.toLowerCase().startsWith(type)
     );
   
-    // Check file extension
     const extension = file.name.split(".").pop()?.toLowerCase() || "";
     const isTextualExtension =
       textualExtensions.includes(extension) ||
@@ -163,7 +157,6 @@ export interface FileWithPreview {
     return isTextualMimeType || isTextualExtension;
   };
   
-  // Helper function to read file content as text
   export const readFileAsText = (file: File): Promise<string> => {
     return new Promise((resolve, reject) => {
       const reader = new FileReader();
@@ -173,7 +166,6 @@ export interface FileWithPreview {
     });
   };
   
-  // Helper function to get file extension for badge
   export const getFileExtension = (filename: string): string => {
     const extension = filename.split(".").pop()?.toUpperCase() || "FILE";
     return extension.length > 8 ? extension.substring(0, 8) + "..." : extension;

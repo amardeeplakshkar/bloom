@@ -8,7 +8,9 @@ import { useTRPC } from '@/src/trpc/client'
 import { useSuspenseQuery } from '@tanstack/react-query'
 import { prisma } from '@/lib/db'
 import { UserButton, UserProfile } from '@clerk/nextjs'
+import { useRouter } from 'next/navigation'
 const Header = ({ toggleCodeView, codeView, projectId }: { toggleCodeView: () => void, codeView: boolean, projectId: string }) => {
+    const router = useRouter()
     const [open, setOpen] = useState(false)
     const [value, setValue] = useState("")
     const trpc = useTRPC();
@@ -66,7 +68,7 @@ const Header = ({ toggleCodeView, codeView, projectId }: { toggleCodeView: () =>
                 </Popover>
             </div>
             <div className='flex items-center gap-2'>
-                <Button className='items-center gap-1 group hidden md:flex' variant={'outline'}>
+                <Button onClick={()=>router.push("/pricing")} className='items-center gap-1 group hidden md:flex' variant={'outline'}>
                     <img src="/media/upgrade.svg" className='w-4 h-4 group-hover:rotate-180 transition-all' alt="" />
                     Upgrade Plan
                 </Button>
@@ -81,7 +83,7 @@ const Header = ({ toggleCodeView, codeView, projectId }: { toggleCodeView: () =>
                         </Button>
                     </PopoverTrigger>
                     <PopoverContent className='w-[""] p-2 gap-2 flex flex-col'>
-                        <div className='items-center p-2 text-sm border rounded-lg cursor-pointer hover:bg-secondary/5 gap-2 group flex w-full '>
+                        <div onClick={()=>router.push("/pricing")} className='items-center p-2 text-sm border rounded-lg cursor-pointer hover:bg-secondary/5 gap-2 group flex w-full '>
                             <img src="/media/upgrade.svg" className='w-4 h-4 group-hover:rotate-180 transition-all' alt="" />
                             Upgrade Plan
                         </div>

@@ -81,12 +81,6 @@ const ProjectView = ({ projectId }: { projectId: string }) => {
                                             projectId={projectId}
                                             setActiveFragment={setActiveFragment}
                                             activeFragment={activeFragment}
-                                        // messages={messages}
-                                        // isLoading={isLoading}
-                                        // error={error}
-                                        // reload={reload}
-                                        // append={append}
-                                        // status={status}
                                         />
                                     </motion.div>
                                 )}
@@ -122,12 +116,6 @@ const ProjectView = ({ projectId }: { projectId: string }) => {
                                 projectId={projectId}
                                 setActiveFragment={setActiveFragment}
                                 activeFragment={activeFragment}
-                            // messages={messages}
-                            // isLoading={isLoading}
-                            // error={error}
-                            // reload={reload}
-                            // append={append}
-                            // status={status}
                             />
                             <CodeView
                                 toggleChatView={toggleChatView}

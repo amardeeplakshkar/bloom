@@ -13,19 +13,13 @@ import { useTRPC } from "@/src/trpc/client";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
-// import { PROJECT_TEMPLATES } from "@/src/app/(home)/constants";
 import { useClerk } from "@clerk/nextjs";
-
-
 
 const formScema = z.object({
     value: z.string()
         .min(1, { message: "Value is required" })
-        // .max(1000, { message: "Value is too  long" }),
 
 });
-
-
 
 const ProjectForm = () => {
     const router =useRouter();
@@ -83,7 +77,6 @@ const ProjectForm = () => {
     const [isFocuesd, setIsFocused] = useState(false);
   
 
-
     return (
 
        
@@ -95,7 +88,6 @@ const ProjectForm = () => {
              
                 )}
             >
-
 
                 <FormField
                     control={form.control}
@@ -119,7 +111,6 @@ const ProjectForm = () => {
 
                             }}
                         />
-
 
                     )}
                 />
@@ -148,7 +139,6 @@ const ProjectForm = () => {
 
                             )
 
-
                         }
                         
                       
@@ -156,26 +146,10 @@ const ProjectForm = () => {
                 </div>
             </form>
 
-
             <div className="flex-wrap justify-center gap-2 hidden md:flex max-w-3xl">
-  {/* {PROJECT_TEMPLATES.map((template) => (
-    <Button
-      key={template.title}
-      variant="outline"
-      size="sm"
-      className="bg-white dark:bg-sidebar"
-      onClick={() => onSelect(template.prompt)}
-    >
-      {template.emoji} {template.title}
-      
-    </Button>
-  ))} */}
+  {}
 </div>
-
         </Form>
-        
-
     )
 }
-
 export default ProjectForm 

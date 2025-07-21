@@ -16,7 +16,6 @@ const FilePreviewCard: React.FC<{
   const isImage = file.type.startsWith("image/");
   const isTextual = isTextualFile(file.file);
 
-
   if (isTextual) {
     return <TextualFilePreviewCard file={file} onRemove={onRemove} />;
   }
@@ -80,7 +79,6 @@ const FilePreviewCard: React.FC<{
   );
 };
 
-
 const PastedContentCard: React.FC<{
   content: PastedContent;
   onRemove: (id: string) => void;
@@ -95,12 +93,12 @@ const PastedContentCard: React.FC<{
         {isExpanded || !needsTruncation ? content.content : previewText}
         {!isExpanded && needsTruncation && "..."}
       </div>
-      {/* OVERLAY */}
+      {}
       <div className="group absolute flex justify-start items-end p-2 inset-0 bg-gradient-to-b to-[#30302E] from-transparent overflow-hidden">
         <p className="capitalize text-white text-xs bg-zinc-800 border  px-2 py-1 rounded-md">
           PASTED
         </p>
-        {/* Actions */}
+        {}
         <div className="group-hover:opacity-100 opacity-0 transition-opacity duration-300 flex items-center gap-0.5 absolute top-2 right-2">
           <Button
             size="icon"
@@ -126,7 +124,6 @@ const PastedContentCard: React.FC<{
   );
 };
 
-
 const TextualFilePreviewCard: React.FC<{
   file: FileWithPreview;
   onRemove: (id: string) => void;
@@ -150,12 +147,12 @@ const TextualFilePreviewCard: React.FC<{
           </div>
         )}
       </div>
-      {/* OVERLAY */}
+      {}
       <div className="group absolute flex justify-start items-end p-2 inset-0 bg-gradient-to-b to-[#30302E] from-transparent overflow-hidden">
         <p className="capitalize text-white text-xs bg-zinc-800 border  px-2 py-1 rounded-md">
           {fileExtension}
         </p>
-        {/* Upload status indicator */}
+        {}
         {file.uploadStatus === "uploading" && (
           <div className="absolute top-2 left-2">
             <Loader2 className="h-3.5 w-3.5 animate-spin text-blue-400" />
@@ -166,7 +163,7 @@ const TextualFilePreviewCard: React.FC<{
             <AlertCircle className="h-3.5 w-3.5 text-red-400" />
           </div>
         )}
-        {/* Actions */}
+        {}
         <div className="group-hover:opacity-100 opacity-0 transition-opacity duration-300 flex items-center gap-0.5 absolute top-2 right-2">
           {file.textContent && (
             <Button
@@ -485,7 +482,6 @@ export const ChatInput: React.FC<ChatInputProps> = ({
     setPastedContent([]);
     if (textareaRef.current) textareaRef.current.style.height = "auto";
   }, [message, files, pastedContent, disabled, onSendMessage]);
-
 
   const handleKeyDown = useCallback(
     (e: React.KeyboardEvent<HTMLTextAreaElement>) => {

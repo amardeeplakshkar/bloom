@@ -34,7 +34,6 @@ const DEPTHMAP = { src: 'https://i.postimg.cc/2SHKQh2q/raw-4.webp' };
 
 extend(THREE as any);
 
-// Post Processing component
 const PostProcessing = ({
   strength = 1,
   threshold = 1,
@@ -53,25 +52,21 @@ const PostProcessing = ({
     const scenePassColor = scenePass.getTextureNode('output');
     const bloomPass = bloom(scenePassColor, strength, 0.5, threshold);
 
-    // Create the scanning effect uniform
     const uScanProgress = uniform(0);
     progressRef.current = uScanProgress;
 
-    // Create a red overlay that follows the scan line
     const scanPos = float(uScanProgress.value);
     const uvY = uv().y;
     const scanWidth = float(0.05);
     const scanLine = smoothstep(0, scanWidth, abs(uvY.sub(scanPos)));
     const redOverlay = vec3(1, 0, 0).mul(oneMinus(scanLine)).mul(0.4);
 
-    // Mix the original scene with the red overlay
     const withScanEffect = mix(
       scenePassColor,
       add(scenePassColor, redOverlay),
       fullScreenEffect ? smoothstep(0.9, 1.0, oneMinus(scanLine)) : 1.0
     );
 
-    // Add bloom effect after scan effect
     const final = withScanEffect.add(bloomPass);
 
     postProcessing.outputNode = final;
@@ -80,7 +75,6 @@ const PostProcessing = ({
   }, [camera, gl, scene, strength, threshold, fullScreenEffect]);
 
   useFrame(({ clock }) => {
-    // Animate the scan line from top to bottom
     progressRef.current.value = (Math.sin(clock.getElapsedTime() * 0.5) * 0.5 + 0.5);
     render.renderAsync();
   }, 1);
@@ -157,18 +151,55 @@ const Scene = () => {
   );
 };
 
+export const titleWordsList = [
+  "Code Your Bloom",
+  "Let Ideas Bloom",
+  "Grow With Code",
+  "Bloom With AI",
+  "Build. Bloom. Beyond.",
+  "Create & Bloom",
+  "Bloom the Future",
+  "From Prompt to Bloom",
+  "Write. Bloom. Repeat.",
+  "Watch Ideas Bloom"
+];
+
+export const subtitlesList = [
+  "AI agents that help your code bloom.",
+  "Grow your next idea with intelligent code.",
+  "From concept to code — let Bloom do the rest.",
+  "Your AI partner for rapid development.",
+  "Code that grows with your creativity.",
+  "Intelligence meets imagination.",
+  "Bring your ideas to life, faster than ever.",
+  "The future of coding starts with Bloom.",
+  "Think it. Code it. Bloom it.",
+  "Empowering builders with smart code agents."
+];
+
 export const HeroSection = () => {
-  const titleWords = `Build Your Blooms`.split(' ');
-  const subtitle = 'AI-powered creativity for the next generation.';
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const titleWords = titleWordsList[currentIndex].split(' ');
+  const subtitle = subtitlesList[currentIndex];
   const [visibleWords, setVisibleWords] = useState(0);
   const [subtitleVisible, setSubtitleVisible] = useState(false);
   const [delays, setDelays] = useState<number[]>([]);
   const [subtitleDelay, setSubtitleDelay] = useState(0);
 
   useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % titleWordsList.length);
+      setVisibleWords(0);
+      setSubtitleVisible(false);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
     setDelays(titleWords.map(() => Math.random() * 0.07));
     setSubtitleDelay(Math.random() * 0.1);
-  }, [titleWords.length]);
+  }, [titleWords.length, currentIndex]); 
 
   useEffect(() => {
     if (visibleWords < titleWords.length) {
@@ -187,8 +218,22 @@ export const HeroSection = () => {
           <div className="text-3xl md:text-5xl xl:text-6xl 2xl:text-7xl font-extrabold relative">
             <div className="flex items-center space-x-2 lg:space-x-6 overflow-hidden text-white">
               {titleWords.map((word, index) => (
-                <Fragment key={index}>
-                  <BlurFade delay={index * 0.43 + (delays[index] || 0)} inView>
+                <Fragment key={`${currentIndex}-${index}`}>
+                  {word.toLowerCase() === 'bloom' && (
+                    <BlurFade  key={`logo-${currentIndex}-${index}`} delay={(index + 0.5) * 0.43 + (delays[index] || 0)} inView>
+                      <img
+                        src="/media/bloom.svg"
+                        alt="bloom logo"
+                        className={`w-6 h-6 animate-spin sm:w-8 sm:h-8 md:w-12 md:h-12 xl:w-16 xl:h-16 2xl:w-20 2xl:h-20 object-contain inline-block ${index < visibleWords ? 'fade-in' : ''}`}
+                        style={{
+                          animationDelay: `${(index + 0.5) * 0.13 + (delays[index] || 0)}s`,
+                          animationDuration: '3s', 
+                          opacity: index < visibleWords ? undefined : 0,
+                        }}
+                      />
+                    </BlurFade>
+                  )}
+                  <BlurFade className='text-shadow-lg text-shadow-black/50' key={`word-${currentIndex}-${index}`} delay={index * 0.43 + (delays[index] || 0)} inView>
                     <div
                       className={`${index < visibleWords ? 'fade-in' : ''}`}
                       style={{
@@ -199,29 +244,15 @@ export const HeroSection = () => {
                       {word}
                     </div>
                   </BlurFade>
-                  {index === 1 && (
-                    <BlurFade delay={(index + 0.5) * 0.43 + (delays[index] || 0)} inView>
-                      <img
-                        src="/media/bloom.svg"
-                        alt="bloom logo"
-                        className={`w-6 h-6 sm:w-8 sm:h-8 md:w-12 md:h-12 xl:w-16 xl:h-16 2xl:w-20 2xl:h-20 object-contain inline-block ${index < visibleWords ? 'fade-in' : ''}`}
-                        style={{
-                          animationDelay: `${(index + 0.5) * 0.13 + (delays[index] || 0)}s`,
-                          opacity: index < visibleWords ? undefined : 0,
-                        }}
-                      />
-                    </BlurFade>
-                  )}
                 </Fragment>
               ))}
-
             </div>
           </div>
           <div className='pointer-events-auto'>
             <ProjectForm />
           </div>
           <div className="text-xs md:text-xl xl:text-2xl 2xl:text-3xl mt-2 overflow-hidden text-white font-bold">
-            <BlurFade delay={titleWords.length * 0.45} inView>
+            <BlurFade className='text-shadow-lg text-shadow-black/50' key={`subtitle-${currentIndex}`} delay={titleWords.length * 0.45} inView>
               <div
                 className={subtitleVisible ? 'fade-in-subtitle' : ''}
                 style={{ animationDelay: `${titleWords.length * 0.13 + 0.2 + subtitleDelay}s`, opacity: subtitleVisible ? undefined : 0 }}
@@ -242,7 +273,7 @@ export const HeroSection = () => {
               antialias: true
             } as any);
             await renderer.init();
-            renderer.setClearColor(0x000000, 0); // Set clear color to transparent
+            renderer.setClearColor(0x000000, 0); 
             return renderer;
           }}
         >
@@ -250,9 +281,8 @@ export const HeroSection = () => {
           <Scene />
         </Canvas>
 
-
         <FlickeringGrid
-          className="z-10 absolute inset-0 size-full mix-blend-screen"
+          className="z-10 absolute pointer-events-none inset-0 size-full mix-blend-screen"
           squareSize={4}
           gridGap={6}
           color="#6B7280"
@@ -263,8 +293,5 @@ export const HeroSection = () => {
     </>
   );
 };
-
-
-
 
 export default HeroSection;

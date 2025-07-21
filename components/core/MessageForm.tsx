@@ -14,10 +14,10 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
 
 import { useRouter } from "next/navigation";
+import { Usage } from "./Usage";
 
 interface props {
     projectId: string,
-
 
 };
 
@@ -27,8 +27,6 @@ const formScema = z.object({
         .max(1000, { message: "Value is too  long" }),
 
 });
-
-
 
 const MessageForm = ({ projectId }: props) => {
     
@@ -67,7 +65,6 @@ const MessageForm = ({ projectId }: props) => {
 
             toast.error("error");
 
-
             if (error.data?.code === "TOO_MANY_REQUESTS") {
                 router.push("/pricing");
               }
@@ -90,12 +87,7 @@ const MessageForm = ({ projectId }: props) => {
 
     return (
         <Form {...form}>
-            {/* {showUsage && (
-                <Usage
-                    points={0}
-                    msBeforeNext={0}
-                />
-            )} */}
+            {showUsage && <Usage points={usage.remainingPoints} msBeforeNext={usage.msBeforeNext} />}
             <form
                 onSubmit={form.handleSubmit(onSubmit)}
                 className={cn("relative border p-4 pt-1 rounded-xl bg-sidebar transition-all",
@@ -103,7 +95,6 @@ const MessageForm = ({ projectId }: props) => {
                     showUsage && "rounded-t-none"
                 )}
             >
-
 
                 <FormField
                     control={form.control}
@@ -127,7 +118,6 @@ const MessageForm = ({ projectId }: props) => {
 
                             }}
                         />
-
 
                     )}
                 />
@@ -156,20 +146,13 @@ const MessageForm = ({ projectId }: props) => {
 
                             )
 
-
                         }
-
 
                     </Button>
                 </div>
             </form>
 
-
-
-
-
         </Form>
-
 
     )
 }

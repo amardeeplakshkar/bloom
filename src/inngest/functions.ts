@@ -161,28 +161,6 @@ export const codeAgentFunction = inngest.createFunction(
                 }
             }
         })
-        // const codeAgent = createAgent<AgentState>({
-        //     name: "codeAgent ",
-        //     description: "An expert Coding Agent",
-        //     system: PROMPT3,
-        //     model: gemini({
-        //         model: "gemini-2.5-pro",
-        //     }
-        //     ),
-        //     tools: [terminalTool, createOrUpdateFiles, readFiles],
-        //     lifecycle: {
-        //         onResponse: async ({ result, network }) => {
-        //             const lastAssistantMessageText =
-        //                 lastAssistantTextMessageContent(result);
-        //             if (lastAssistantMessageText && network) {
-        //                 if (lastAssistantMessageText?.includes("<task_summary>")) {
-        //                     network.state.data.summary = lastAssistantMessageText;
-        //                 }
-        //             }
-        //             return result;
-        //         }
-        //     }
-        // });
         const network = createNetwork<AgentState>({
             name: "coding-agent-network",
             agents: [openAiCodeAgent],

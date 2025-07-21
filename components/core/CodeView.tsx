@@ -81,16 +81,7 @@ const WrappedContent = ({ toggleChatView, chatView, value, setValue, closeButton
                             files={activeFragment.file as { [path: string]: string }}
                         />) : (
 
-
-
-
-
-
-
-
-
                         <div className="flex items-center  flex-col justify-center min-h-screen ">
-
 
                             <motion.p
                                 initial={{ scale: 0, opacity: 0 }}
@@ -109,8 +100,6 @@ const WrappedContent = ({ toggleChatView, chatView, value, setValue, closeButton
                                 xmlns="http://www.w3.org/2000/svg"
                                 className="text-blue-500"
                             >
-
-
 
                                 <motion.circle
                                     cx="50"
@@ -133,11 +122,6 @@ const WrappedContent = ({ toggleChatView, chatView, value, setValue, closeButton
                                 />
                             </motion.svg>
                         </div>
-
-
-
-
-
 
                     )}
                 </TabsContent>
@@ -162,8 +146,6 @@ const WrappedContent = ({ toggleChatView, chatView, value, setValue, closeButton
                                 className="text-blue-500"
                             >
 
-
-
                                 <motion.circle
                                     cx="50"
                                     cy="50"
@@ -186,31 +168,12 @@ const WrappedContent = ({ toggleChatView, chatView, value, setValue, closeButton
                             </motion.svg>
                         </div>
                     )}
-                    {/* <SandpackPreview
-                            style={{
-                                height: '100%',
-                                overflowY: 'auto'
-                            }}
-                            showNavigator={false}
-                            showOpenNewtab={false}
-                            showOpenInCodeSandbox={false}
-                            showRefreshButton={false}
-                            showRestartButton={false}
-                            actionsChildren={
-                                <Link href="https://bloom.amardeep.space" className=' sticky bottom-2 right-2'>
-                                    <Badge variant={'default'}>
-                                        made with ♥️ by
-                                        <img src="/media/bloom.svg" className='w-4 h-4' alt="" />
-                                        Bloom
-                                    </Badge>
-                                </Link>
-                            } /> */}
+                    {}
                 </TabsContent>
             </main>
         </div>
     );
 }
-
 const CodeViewContent = ({ toggleChatView, chatView, value, setValue, closeButton, activeFragment }: {
     toggleChatView: () => void
     chatView: boolean

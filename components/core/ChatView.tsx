@@ -83,7 +83,6 @@ const ChatView = ({
     if (!messages || messages.length === 0) return;
     const lastMessage = messages[messages.length - 1];
 
-
     if (lastMessage?.role === 'USER') {
       const userMessageElement = userMessageRefs.current.get(lastMessage.id);
       if (userMessageElement && messagesContainerRef.current) {
@@ -114,10 +113,8 @@ const ChatView = ({
     }
   };
 
-
   const buttonRef = useRef<HTMLDivElement>(null);
   const lastAssistanceMessageIdRef = useRef<string | null>(null);
-
 
   const trpc = useTRPC();
 
@@ -125,12 +122,9 @@ const ChatView = ({
     projectId: projectId,
   }, {
 
-    //TODO 
     refetchInterval: 2000,
 
   }));
-
-
 
   useEffect(() => {
 
@@ -146,8 +140,6 @@ const ChatView = ({
     }
   }, [messages, setActiveFragment]);
 
-
-
   useEffect(() => {
     buttonRef.current?.scrollIntoView();
   }, [messages?.length]);
@@ -160,11 +152,9 @@ const ChatView = ({
     return messages[messages.length - 1].role === 'USER';
   }, [messages]);
 
-
   useEffect(() => {
     scrollToMessage();
   }, [messages]);
-
 
   return (
     <div className='h-[92dvh] flex flex-col w-full'>

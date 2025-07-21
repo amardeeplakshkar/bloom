@@ -13,7 +13,6 @@ import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "../ui/colla
 import { TreeItem } from '@/lib/utils';
 import { SidebarProvider, SidebarContent, Sidebar,SidebarGroup, SidebarGroupContent, SidebarMenu, SidebarRail, SidebarMenuButton, SidebarMenuItem, SidebarMenuSub } from '../ui/sidebar';
 
-
 export const TreeView = ({ data,
   value,
   onSelect }: TreeViewProps) => {
@@ -27,8 +26,6 @@ export const TreeView = ({ data,
 
             <SidebarGroupContent>
 
-
-
               <SidebarMenu>
 
                 {data.map((item: TreeItem, index: number) => (
@@ -41,20 +38,15 @@ export const TreeView = ({ data,
                   />
                 ))}
 
-
               </SidebarMenu>
-
 
             </SidebarGroupContent>
 
-
           </SidebarGroup>
-
 
         </SidebarContent>
 
       </Sidebar>
-
 
     </SidebarProvider>
   )
@@ -68,14 +60,11 @@ interface TreeProps {
   parentPath: string,
 };
 
-
-
 const Tree = ({ item,
   SelectedValue,
   onSelect,
   parentPath, }: TreeProps) => {
 
-    // Handle TreeItem type: string | [string, ...TreeItem[]]
     const name = typeof item === 'string' ? item : item[0];
     const items = typeof item === 'string' ? [] : item.slice(1);
     const currenPath = parentPath ? `${parentPath.replace(/\/$/, "")}/${name}` : name;
@@ -98,14 +87,11 @@ const Tree = ({ item,
     )
   }
 
-  //its a folder
-
   return (
     <SidebarMenuItem>
       <Collapsible
         className="group/collapsible {&[data-state=open]>button>svg:first-child}:rotate-90}"
         defaultOpen
-
 
       >
         <CollapsibleTrigger asChild>
@@ -117,8 +103,6 @@ const Tree = ({ item,
             </span>
           </SidebarMenuButton>
         </CollapsibleTrigger>
-
-
 
         <CollapsibleContent>
           <SidebarMenuSub>

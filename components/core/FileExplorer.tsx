@@ -17,7 +17,6 @@ function getLanguageFormExtension(filename: string): string {
 
 };
 
-
 interface FileBreadcrumbProps {
     filePath: string,
 
@@ -27,10 +26,8 @@ const FileBreadcrumb = ({ filePath }: FileBreadcrumbProps) => {
     const pathSegmanets = filePath.split("/");
     const maxSegments = 3;
 
-
     const renderBredcrumbItems = () => {
         if (pathSegmanets.length <= maxSegments) {
-            //show all segmanets of 4 or less
             return pathSegmanets.map((segment, index) => {
                 const isLast = index === pathSegmanets.length - 1;
 
@@ -55,7 +52,6 @@ const FileBreadcrumb = ({ filePath }: FileBreadcrumbProps) => {
                         {!isLast && <BreadcrumbSeparator />}
                     </Fragment>
                 )
-
 
             })
 
@@ -98,14 +94,10 @@ const FileBreadcrumb = ({ filePath }: FileBreadcrumbProps) => {
     )
 };
 
-
-
 interface FileExplorerProps {
     files: FileCollection,
 
 }
-
-
 
 const FileExplorer = ({ files }: FileExplorerProps) => {
     const [selectedFile, setSelectedFile] = useState<string | null>(() => {
@@ -116,16 +108,11 @@ const FileExplorer = ({ files }: FileExplorerProps) => {
         return fileKeys.length > 0 ? fileKeys[0] : null;
     });
 
-
     const [copied, setCopied] = useState(false);
-
-
 
     const treeData = useMemo(() => {
         return convertFilesToTreeItems(files);
     }, [files]);
-
-
 
     const handleFilesSelect = useCallback((filepath: string) => {
 
@@ -136,10 +123,6 @@ const FileExplorer = ({ files }: FileExplorerProps) => {
 
     }, [files])
 
-
-
-
-
     const handleCopy = () => {
         if (!selectedFile) return;
         navigator.clipboard.writeText(files[selectedFile]);
@@ -149,7 +132,6 @@ const FileExplorer = ({ files }: FileExplorerProps) => {
         }, 2000);
     };
     
-
 
     return (
 
@@ -164,9 +146,7 @@ const FileExplorer = ({ files }: FileExplorerProps) => {
 
             </ResizablePanel>
 
-
             <ResizableHandle className="hover:bg-primary transition-colors" />
-
 
             <ResizablePanel defaultSize={70} minSize={50} >
 
@@ -215,9 +195,7 @@ const FileExplorer = ({ files }: FileExplorerProps) => {
                     </div>
                 )}
 
-
             </ResizablePanel>
-
 
         </ResizablePanelGroup>
     )
