@@ -11,8 +11,12 @@ const Page = () => {
 
     return (
         <div className="flex flex-col max-w-3xl mx-auto w-full">
-            <section className="space-y-6 pt-[8dvh] md:pt-[16dvh]">
-                <div className="flex flex-col items-center">
+            <section className="space-y-6 pt-[8dvh] md:pt-[16dvh] p-4">
+                <div
+                style={{
+                    animationDuration: "3s",
+                }}
+                className="flex flex-col animate-spin items-center">
                     <img src="/media/bloom.svg" alt="" />
                 </div>
                 <h1 className="text-xl md:text-3xl font-bold text-center">Pricing</h1>

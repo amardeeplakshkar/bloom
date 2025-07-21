@@ -20,7 +20,7 @@ const layout = ({ children }: props) => {
                           maxOpacity={0.1}
                           flickerChance={0.1}
                         />
-                <div className='flex-1 flex flex-col px-4 pb-4'>
+                <div className='flex-1 flex flex-col'>
                     {children}
                 </div>
             </main>

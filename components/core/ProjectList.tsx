@@ -31,7 +31,7 @@ export const ProjectsList = () => {
                     </div>
                 )}
                 {projects?.map((project) => (
-                    <Link className="cursor-pointer!" href={`/projects/${project.id}`}>
+                    <Link className="cursor-pointer!" href={`/project/${project.id}`}>
                         <Button
                             key={project.id}
                             variant="outline"
