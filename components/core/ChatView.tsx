@@ -161,13 +161,13 @@ const ChatView = ({
       <ScrollArea ref={messagesContainerRef} className='flex-1 overflow-y-auto *:pb-4'>
         {
           messages?.map((message, index) => (
-            <div ref={message?.role === 'USER' ? (el) => setUserMessageRef(el, message?.id) : undefined} className={`p-2 flex flex-col ${message?.role === 'USER' ? 'flex-row-reverse' : 'w-[80%]'}`} key={index}>
-              <div className={` break-words ${message?.role === 'USER' ? 'bg-secondary/5 p-2 px-4 rounded-lg border' : ''}`}>
+            <div ref={message?.role === 'USER' ? (el) => setUserMessageRef(el, message?.id) : undefined} className={`p-2 flex  flex-col ${message?.role === 'USER' ? 'flex-row-reverse ' : 'w-[80%]'}`} key={index}>
+              <div className={` break-words ${message?.role === 'USER' ? 'bg-secondary/5 w-[80%] p-2 px-4 rounded-lg border' : ''}`}>
                 {
                   message?.role === 'ASSISTANT' && (
                     <div className='flex items-center gap-2'>
                       <img src="/media/bloom.svg" alt="" className={`w-5.5 h-5.5 ${message?.id === messages[messages.length - 1].id && isLoading ? 'animate-spin' : ''}`} />
-                      <p className='text-lg text-secondary'>Bloom</p>
+                      <p className='text-lg'>Bloom</p>
                     </div>
                   )
                 }

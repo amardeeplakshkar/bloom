@@ -38,7 +38,7 @@ const WrappedContent = ({ toggleChatView, chatView, value, setValue, closeButton
             <header className='flex justify-between items-center p-1 bg-secondary/5 sticky top-0 z-10 '>
                 <div className='flex items-center gap-2'>
                     <Button title='Toggle chat view' className='p-2 h-auto w-auto hidden md:flex' variant={'ghost'} size={'icon'} onClick={toggleChatView}>
-                        {!chatView ? <ChevronsRight className='text-secondary' size={14} /> : <ChevronsLeft className='text-secondary' size={14} />}
+                        {!chatView ? <ChevronsRight  size={14} /> : <ChevronsLeft  size={14} />}
                     </Button>
                     <TabsList className='bg-transparent'>
                         <TabsTrigger title='Code' value="code"><Code className={value === "code" ? "text-primary" : ""} />Code</TabsTrigger>
@@ -56,10 +56,10 @@ const WrappedContent = ({ toggleChatView, chatView, value, setValue, closeButton
                             window.open(activeFragment?.sandboxUrl, '_blank');
                         }}
                     >
-                        <ArrowUpRightFromSquare className='text-secondary' size={14} />
+                        <ArrowUpRightFromSquare  size={14} />
                     </Button>
                     <Button title='Refresh' className='p-2 h-auto w-auto' variant={'ghost'} size={'icon'} onClick={onRefresh}>
-                        <RefreshCcw className='text-secondary' size={14} />
+                        <RefreshCcw  size={14} />
                     </Button>
                     <Button size={"sm"}
                         variant={"outline"}
@@ -209,7 +209,7 @@ const CodeView = ({ toggleChatView, chatView, isOpen, onOpenChange, activeFragme
                             closeButton={
                                 <SheetClose asChild>
                                     <Button className='p-2 h-auto w-auto' variant={'ghost'} size={'icon'}>
-                                        <X className='text-secondary' size={14} />
+                                        <X  size={14} />
                                     </Button>
                                 </SheetClose>
                             }

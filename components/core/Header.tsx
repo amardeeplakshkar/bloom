@@ -9,13 +9,14 @@ import { useSuspenseQuery } from '@tanstack/react-query'
 import { prisma } from '@/lib/db'
 import { UserButton, UserProfile } from '@clerk/nextjs'
 import { useRouter } from 'next/navigation'
+import { ModeToggle } from './ModeToggle'
 const Header = ({ toggleCodeView, codeView, projectId }: { toggleCodeView: () => void, codeView: boolean, projectId: string }) => {
     const router = useRouter()
     const [open, setOpen] = useState(false)
     const [value, setValue] = useState("")
     const trpc = useTRPC();
     const { data: project } = useSuspenseQuery(
-      trpc.projects.getOne.queryOptions({ id: projectId })
+        trpc.projects.getOne.queryOptions({ id: projectId })
     );
 
     return (
@@ -68,7 +69,7 @@ const Header = ({ toggleCodeView, codeView, projectId }: { toggleCodeView: () =>
                 </Popover>
             </div>
             <div className='flex items-center gap-2'>
-                <Button onClick={()=>router.push("/pricing")} className='items-center gap-1 group hidden md:flex' variant={'outline'}>
+                <Button onClick={() => router.push("/pricing")} className='items-center gap-1 group hidden md:flex' variant={'outline'}>
                     <img src="/media/upgrade.svg" className='w-4 h-4 group-hover:rotate-180 transition-all' alt="" />
                     Upgrade Plan
                 </Button>
@@ -76,6 +77,9 @@ const Header = ({ toggleCodeView, codeView, projectId }: { toggleCodeView: () =>
                     <img src="/media/publish.svg" className='w-4 h-4 group-hover:rotate-180 transition-all' alt="" />
                     Publish Site
                 </Button>
+                <div className='hidden md:flex'>
+                    <ModeToggle />
+                </div>
                 <Popover>
                     <PopoverTrigger className=' flex md:hidden' asChild>
                         <Button className='p-2 h-auto w-auto' variant={'ghost'} size={'icon'}>
@@ -83,7 +87,10 @@ const Header = ({ toggleCodeView, codeView, projectId }: { toggleCodeView: () =>
                         </Button>
                     </PopoverTrigger>
                     <PopoverContent className='w-[""] p-2 gap-2 flex flex-col'>
-                        <div onClick={()=>router.push("/pricing")} className='items-center p-2 text-sm border rounded-lg cursor-pointer hover:bg-secondary/5 gap-2 group flex w-full '>
+                        <div className=''>
+                            <ModeToggle title />
+                        </div>
+                        <div onClick={() => router.push("/pricing")} className='items-center p-2 text-sm border rounded-lg cursor-pointer hover:bg-secondary/5 gap-2 group flex w-full '>
                             <img src="/media/upgrade.svg" className='w-4 h-4 group-hover:rotate-180 transition-all' alt="" />
                             Upgrade Plan
                         </div>
@@ -97,7 +104,7 @@ const Header = ({ toggleCodeView, codeView, projectId }: { toggleCodeView: () =>
                     {codeView ? <img src="/media/bolt.svg" className='w-4 h-4 group-hover:rotate-180 transition-all' alt="" /> : <img src="/media/prop.svg" className='w-4 h-4 group-hover:rotate-180 transition-all' alt="" />}
                     {codeView ? "Close Editor" : "Open Editor"}
                 </Button>
-                <UserButton/>
+                <UserButton />
             </div>
         </header>
     )
