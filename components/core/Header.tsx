@@ -1,7 +1,7 @@
 'use client'
 import React, { useState } from 'react'
 import { Button } from '../ui/button'
-import { ChevronRight, ChevronsUpDown, Edit2Icon, Trash2, UnfoldVertical } from 'lucide-react'
+import { ArrowLeftToLine, ChevronRight, ChevronsUpDown, Edit2Icon, EllipsisVertical, Trash2, UnfoldVertical } from 'lucide-react'
 import { Popover, PopoverTrigger, PopoverContent } from '@/components/ui/popover'
 import { Command, CommandList, CommandGroup, CommandItem } from '@/components/ui/command'
 import { useTRPC } from '@/src/trpc/client'
@@ -10,6 +10,10 @@ import { prisma } from '@/lib/db'
 import { UserButton, UserProfile } from '@clerk/nextjs'
 import { useRouter } from 'next/navigation'
 import { ModeToggle } from './ModeToggle'
+import { Sheet, SheetClose, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '../ui/sheet'
+import NavProjects from './NavProjects'
+import { ScrollArea } from '../ui/scroll-area'
+import Link from 'next/link'
 const Header = ({ toggleCodeView, codeView, projectId }: { toggleCodeView: () => void, codeView: boolean, projectId: string }) => {
     const router = useRouter()
     const [open, setOpen] = useState(false)
@@ -22,8 +26,37 @@ const Header = ({ toggleCodeView, codeView, projectId }: { toggleCodeView: () =>
     return (
         <header className='flex items-center gap-2 justify-between p-2' suppressHydrationWarning={true}>
             <div className='flex items-center gap-1 group'>
-                <img src="/media/bloom.svg" className='w-6 h-6 group-hover:rotate-180 transition-all' alt="" />
-                <ChevronRight size={16} />
+                <Sheet>
+                    <SheetTrigger className='flex items-center gap-1'>
+                        <img src="/media/bloom.svg" className='w-6 h-6 group-hover:rotate-180 transition-all' alt="" />
+                        <ChevronRight size={16} />
+                    </SheetTrigger>
+                    <SheetContent side='left' closable={false} className='p-4 bg-background/25 backdrop-blur-md rounded-r-xl'>
+                        <SheetHeader className='p-[-2rem] grid grid-cols-2  w-full'>
+                            <SheetTitle className='flex items-center gap-2'>
+                                <img src="/media/bloom.svg" className='w-7 h-7 group-hover:rotate-180 transition-all' alt="" />
+                                My Sites
+                            </SheetTitle>
+                            <SheetClose asChild className='place-self-end '>
+                                <Button variant={'ghost'} size={'icon'}>
+                                    <ArrowLeftToLine size={18} />
+                                </Button>
+                            </SheetClose>
+                        </SheetHeader>
+                        <Link href="/" className='w-full'>
+                        <Button className='group w-full' variant={'outline'}>
+                            <img src="/media/flower.svg" className='w-4 h-4 group-hover:rotate-180 transition-all' alt="" />
+                            New Project
+                        </Button>
+                        </Link>
+                        <p className='italic text-sm'>
+                            Recents:
+                        </p>
+                        <ScrollArea className='h-[calc(100vh-10rem)]'>
+                        <NavProjects/>
+                        </ScrollArea>
+                    </SheetContent>
+                </Sheet>
                 <Popover open={open} onOpenChange={setOpen}>
                     <PopoverTrigger asChild>
                         <Button

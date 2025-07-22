@@ -15,6 +15,7 @@ import {
 import { getSandbox, lastAssistantTextMessageContent, parseAgentOutput, SANDBOX_TIMEOUT } from "@/lib/utils";
 import { FRAGMENT_TITLE_PROMPT, PROMPT, PROMPT2, PROMPT3, RESPONSE_PROMPT } from "@/lib/prompt";
 import { prisma } from "@/lib/db";
+import { CODEBASEPROMPT } from "@/lib/test";
 interface AgentState {
     summary: string,
     files: { [path: string]: string };
